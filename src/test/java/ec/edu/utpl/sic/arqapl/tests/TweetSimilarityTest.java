@@ -7,14 +7,34 @@ import org.junit.Test;
 public class TweetSimilarityTest {
     public TweetSimilarityTest() {
     }
+   @Test
+    // ejecucion del algoritmo jaccard
+    public void similarJaccard() {
+        String tweet1 = "Hola mundo java";
+        String tweet2 = "Hola mundo";
+        TweetSimilarity ts = new TweetSimilarity();
+        assertEquals(1.0,
+                ts.similarityJaccard(tweet1, tweet2), 0.1);
+
+    }
+
+    
+      @Test
+    //ejecucion del algoritmo cosine
+    public void similarCosine() {
+        String tweet1 = "Hola mundo java";
+        String tweet2 = "Hola mundo";
+       TweetSimilarity ts = new TweetSimilarity();
+        assertEquals(1.0, ts.similarityCosine(tweet1, tweet2), 0.1);
+    }
+
 
     @Test
-    public void similar() {
-        var tweet1 = "Hola mundo";
-        var tweet2 = "Hola mundo";
+    //ejecucion del algoritmo jaro winkel distance
+    public void similarJaro() {
+        String tweet1 = "Hola mundo java";
+        String tweet2 = "Hola mundo";
         TweetSimilarity ts = new TweetSimilarity();
-            assertEquals(1.0,
-                ts.similarity(tweet1, tweet2), 0.1);
-
+        assertEquals(1.0, ts.similarityJaron(tweet1, tweet2),0.1);
     }
 }
